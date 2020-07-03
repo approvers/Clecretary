@@ -4,7 +4,6 @@ async function loadElement(){
     while (assignments == null || assignments.children == null){
       assignments = document.querySelector("#yDmH0d > div.v7wOcf.ZGnOx > div.Z3qXvc.kdAl3b > div.pEwOBc")
     }
-    console.log(assignments)
     
     let elements = assignments.children;
     let limit = "";
@@ -21,8 +20,7 @@ async function loadElement(){
       assignment_contents.push(assignment)
     }
 
-    chrome.storage.sync.set({"assignments": assignment_contents}, () => {console.log("saved")})
-    chrome.storage.sync.get("assignments", (result) => {console.log(result)})
+    chrome.storage.sync.set({"assignments": assignment_contents}, () => {})
     chrome.runtime.sendMessage({assignments: assignment_contents})
   }, 5000)
 }
@@ -30,7 +28,6 @@ async function loadElement(){
 const days = ["期限: 日曜日", "期限: 月曜日", "期限: 火曜日", "期限: 水曜日", "期限: 木曜日", "期限: 金曜日", "期限: 土曜日"]
 
 function getLimit(limit) {
-  console.log(limit)
   if (days.includes(limit))
     return getDataFromDay(limit)
   if (limit === "明日")
@@ -65,7 +62,6 @@ function getDataFromDay(day) {
   let dayIndex = days.indexOf(day)
 
   let today = new Date();
-  console.log(today)
 
   let dayToday = today.getDay();
 
