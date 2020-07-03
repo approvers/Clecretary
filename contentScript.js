@@ -21,7 +21,8 @@ async function loadElement(){
       assignment_contents.push(assignment)
     }
 
-    console.log(assignment_contents)
+    chrome.storage.sync.set({"assignments": assignment_contents}, () => {console.log("saved")})
+    chrome.storage.sync.get("assignments", (result) => {console.log(result)})
   }, 5000)
 }
 

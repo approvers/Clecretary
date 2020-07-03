@@ -7,5 +7,5 @@
     "js": ["contentScript.js"],
     "matches": ["https://classroom.google.com/u/*/a/not-turned-in/all"]
   }],
-  "permissions": ["webNavigation"]
+  "permissions": ["webNavigation", "storage"]
 }
