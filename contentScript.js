@@ -43,13 +43,15 @@ function getLimit(limit) {
 
 function getAssignmentsInfo(element) {
   let name = element.getElementsByClassName("YVvGBb")[0].getElementsByClassName("onkcGd YVvGBb Evt7cb jp5EVb")[0].textContent
-
   let subject = element.getElementsByClassName("YVvGBb")[0].getElementsByClassName("QRiHXd")[0].textContent
+  let rawLink = element.getElementsByClassName("YVvGBb")[0].getElementsByClassName("onkcGd YVvGBb Evt7cb jp5EVb")[0].getAttribute("href")
+
+  let link = "https://classroom.google.com" + rawLink
   
   if (subject.includes("期限"))
     subject = subject.split("期限:")[0].slice(0, -3)
 
-  return {name, subject}
+  return {name, subject, link}
 }
 
 function getTomorrowDate() {
