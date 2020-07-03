@@ -4,21 +4,21 @@
   "description": "Manage assignments in google classroom",
   "manifest_version": 2,
   "content_scripts": [{
-    "js": ["contentScript.js"],
+    "js": ["js/content/contentScript.js"],
     "matches": ["https://classroom.google.com/u/*/a/not-turned-in/all"]
   }],
   "browser_action": {
-    "default_popup": "popup.html",
+    "default_popup": "html/popup.html",
     "default_title": "",
-    "default_icon": "book_hon_38055-300x300.jpg"
+    "default_icon": "static/book_hon_38055-300x300.jpg"
   },
   "icons": {
-    "128": "book_hon_38055-300x300.jpg"
+    "128": "static/book_hon_38055-300x300.jpg"
   },
   "permissions": ["webNavigation", "storage", "tabs"],
   "background": {
     "scripts": [
-      "background.js"
+      "js/background/background.js"
     ]
   }
 }

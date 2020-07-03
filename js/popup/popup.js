@@ -5,6 +5,7 @@ function update() {
 
   if (assignments == null) {
     document.getElementById("app").innerHTML = "<h3>課題がインポートされていません</h3><h4>TODOの画面でリロードすることで課題を更新します</h4>"
+    return
   }
   
   assignments.forEach((value, index) => {
@@ -26,4 +27,3 @@ function refresh() {
 }
 
 chrome.storage.sync.get("assignments", (result) => {assignments = result.assignments; update()})
-document.getElementById("refresh").addEventListener("click", refresh)
