@@ -15,5 +15,10 @@
   "icons": {
     "128": "book_hon_38055-300x300.jpg"
   },
-  "permissions": ["webNavigation", "storage"]
+  "permissions": ["webNavigation", "storage"],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  }
 }

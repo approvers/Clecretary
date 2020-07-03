@@ -23,6 +23,7 @@ async function loadElement(){
 
     chrome.storage.sync.set({"assignments": assignment_contents}, () => {console.log("saved")})
     chrome.storage.sync.get("assignments", (result) => {console.log(result)})
+    chrome.runtime.sendMessage({assignments: assignment_contents})
   }, 5000)
 }
 
