@@ -1,5 +1,3 @@
-let assignments
-
 function createMessageElement(title, subtitle) {
   const messageTitleElement = document.createElement("h3");
   messageTitleElement.setAttribute("class", "message__title");
@@ -16,7 +14,7 @@ function createMessageElement(title, subtitle) {
   return messageElement;
 }
 
-function update() {
+function update(assignments) {
   const appElement = document.getElementById("app");
 
   if (assignments == null) {
@@ -54,10 +52,4 @@ function update() {
   })
 }
 
-function refresh() {
-  assignments = chrome.extension.getBackgroundPage().assignments;
-
-  update()
-}
-
-chrome.storage.sync.get("assignments", (result) => {assignments = result.assignments; update()})
+chrome.storage.sync.get("assignments", ({ assignments }) => update(assignments))
