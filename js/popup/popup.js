@@ -17,17 +17,17 @@ function createMessageElement(title, subtitle) {
 }
 
 function update() {
-  let element = "";
+  const appElement = document.getElementById("app");
 
   if (assignments == null) {
     const messageElement = createMessageElement("課題がインポートされていません", "TODOの画面でリロードすることで課題を更新します。");
-    document.getElementById("app").appendChild(messageElement);
+    appElement.appendChild(messageElement);
     return
   }
 
   if (assignments.length === 0) {
     const messageElement = createMessageElement("残っている課題はありません", "もしうまく反映されていなければTODOの画面でリロードしてください。");
-    document.getElementById("app").appendChild(messageElement);
+    appElement.appendChild(messageElement);
     return
   }
   
