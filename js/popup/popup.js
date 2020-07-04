@@ -1,15 +1,33 @@
 let assignments
 
+function createMessageElement(title, subtitle) {
+  const messageTitleElement = document.createElement("h3");
+  messageTitleElement.setAttribute("class", "message__title");
+  messageTitleElement.innerText = title;
+
+  const messageSubtitleElement = document.createElement("h4");
+  messageSubtitleElement.setAttribute("class", "message__subtitle");
+  messageSubtitleElement.innerText = subtitle;
+
+  const messageElement = document.createElement("div");
+  messageElement.setAttribute("class", "message");
+  messageElement.append(messageTitleElement, messageSubtitleElement);
+
+  return messageElement;
+}
+
 function update() {
   let element = "";
 
   if (assignments == null) {
-    document.getElementById("app").innerHTML = "<h3>課題がインポートされていません</h3><h4>TODOの画面でリロードすることで課題を更新します</h4>"
+    const messageElement = createMessageElement("課題がインポートされていません", "TODOの画面でリロードすることで課題を更新します。");
+    document.getElementById("app").appendChild(messageElement);
     return
   }
 
   if (assignments.length === 0) {
-    document.getElementById("app").innerHTML = "<h3>残っている課題はありません</h3><h4>もしうまく反映されていなければTODOの画面でリロードしてください。</h4>"
+    const messageElement = createMessageElement("残っている課題はありません", "もしうまく反映されていなければTODOの画面でリロードしてください。");
+    document.getElementById("app").appendChild(messageElement);
     return
   }
   
