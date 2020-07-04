@@ -1,8 +1,12 @@
 async function loadElement(){
-  setTimeout(() => {
+  //setTimeout(() => {
     let assignments = null;
-    while (assignments == null || assignments.children == null){
+    while (assignments == null || assignments.children.length == 0){
       assignments = document.querySelector("#yDmH0d > div.v7wOcf.ZGnOx > div.Z3qXvc.kdAl3b > div.pEwOBc")
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      console.log(assignments)
+      if (assignments != null)
+        console.log(assignments.children)
     }
     
     let elements = assignments.children;
@@ -22,7 +26,7 @@ async function loadElement(){
 
     chrome.storage.sync.set({"assignments": assignment_contents}, () => {})
     chrome.runtime.sendMessage({assignments: assignment_contents})
-  }, 5000)
+  // }, 5000)
 }
 
 const days = ["期限: 日曜日", "期限: 月曜日", "期限: 火曜日", "期限: 水曜日", "期限: 木曜日", "期限: 金曜日", "期限: 土曜日"]
