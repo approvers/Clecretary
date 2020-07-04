@@ -35,12 +35,15 @@ function update(assignments) {
 
   assignments.forEach((data) => {
     const taskNameElement = document.createElement("p");
+    taskNameElement.setAttribute("class", "task__name");
     taskNameElement.innerText = `name: ${data.name}`;
 
     const taskLimitElement = document.createElement("p");
+    taskNameElement.setAttribute("class", "task__limit");
     taskLimitElement.innerText = `limit: ${data.limit}`;
 
     const taskSubjectElement = document.createElement("p");
+    taskSubjectElement.setAttribute("class", "task__subject");
     taskSubjectElement.innerText = `subject: ${data.subject}`;
 
     const taskElement = document.createElement("div");
