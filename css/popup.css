@@ -1,0 +1,10 @@
+body:root {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.title {
+  font-family: paralucent-stencil, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 3rem;
+}
