@@ -1,4 +1,6 @@
-body:root {
+body {
+  width: 20rem;
+  height: 50rem;
   font-family: 'Noto Sans JP', sans-serif;
 }
 
