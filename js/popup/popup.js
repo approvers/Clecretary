@@ -30,17 +30,24 @@ function update() {
     appElement.appendChild(messageElement);
     return
   }
-  
-  assignments.forEach((value, index) => {
-    element += `<div class="task" id="assignment${index}"><p>name: ${value.name}</p><p>limit: ${value.limit}</p><p>subject: ${value.subject}</p></div>`
-  })
-  document.getElementById("app").innerHTML = element
 
-  assignments.forEach((value, index) => 
-    document.getElementById(`assignment${index}`).addEventListener("click", () => {
-      chrome.tabs.create({url: value.link})
-    })
-  )
+  assignments.forEach((data) => {
+    const taskNameElement = document.createElement("p");
+    taskNameElement.innerText = `name: ${data.name}`;
+
+    const taskLimitElement = document.createElement("p");
+    taskLimitElement.innerText = `limit: ${data.limit}`;
+
+    const taskSubjectElement = document.createElement("p");
+    taskSubjectElement.innerText = `subject: ${data.subject}`;
+
+    const taskElement = document.createElement("div");
+    taskElement.setAttribute("class", "task");
+    taskElement.append(taskNameElement, taskLimitElement, taskSubjectElement);
+    taskElement.addEventListener("click", () => chrome.tabs.create({ url: data.link }));
+
+    appElement.appendChild(taskElement);
+  })
 }
 
 function refresh() {
