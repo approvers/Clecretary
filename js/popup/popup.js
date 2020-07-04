@@ -14,7 +14,7 @@ function update() {
   }
   
   assignments.forEach((value, index) => {
-    element += `<div class="task" id=assignment${index}><p>name: ${value.name}</p><p>limit: ${value.limit}</p><p>subject: ${value.subject}</p></div>`
+    element += `<div class="task" id="assignment${index}"><p>name: ${value.name}</p><p>limit: ${value.limit}</p><p>subject: ${value.subject}</p></div>`
   })
   document.getElementById("app").innerHTML = element
 
