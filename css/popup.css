@@ -4,9 +4,21 @@ body {
   font-family: 'Noto Sans JP', sans-serif;
 }
 
-.title {
+.header {
+  position: fixed;
+  width: 100vw;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, .5);
+  background-color: #fff;
+}
+
+.header__title {
   font-family: paralucent-stencil, sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 3rem;
+  font-size: 2rem;
+}
+
+#app {
+  padding-top: 4rem;
 }
