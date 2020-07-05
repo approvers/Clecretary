@@ -1,34 +1,58 @@
-let assignments
+function createMessageElement(title, subtitle) {
+  const messageTitleElement = document.createElement("h3");
+  messageTitleElement.setAttribute("class", "message__title");
+  messageTitleElement.innerText = title;
 
-function update() {
-  let element = "";
+  const messageSubtitleElement = document.createElement("h4");
+  messageSubtitleElement.setAttribute("class", "message__subtitle");
+  messageSubtitleElement.innerText = subtitle;
+
+  const messageElement = document.createElement("div");
+  messageElement.setAttribute("class", "message");
+  messageElement.append(messageTitleElement, messageSubtitleElement);
+
+  return messageElement;
+}
+
+function update(assignments) {
+  const appElement = document.getElementById("app");
 
   if (assignments == null) {
-    document.getElementById("app").innerHTML = "<h3>課題がインポートされていません</h3><h4>TODOの画面でリロードすることで課題を更新します</h4>"
+    const title = "課題がインポートされていません";
+    const subtitle = "TODOの画面でリロードすることで課題を更新します。";
+    const messageElement = createMessageElement(title, subtitle);
+    appElement.appendChild(messageElement);
     return
   }
 
   if (assignments.length === 0) {
-    document.getElementById("app").innerHTML = "<h3>残っている課題はありません</h3><h4>もしうまく反映されていなければTODOの画面でリロードしてください。</h4>"
+    const title = "残っている課題はありません";
+    const subtitle = "もしうまく反映されていなければTODOの画面でリロードしてください。";
+    const messageElement = createMessageElement(title, subtitle);
+    appElement.appendChild(messageElement);
     return
   }
-  
-  assignments.forEach((value, index) => {
-    element += `<div class="task" id=assignment${index}><p>name: ${value.name}</p><p>limit: ${value.limit}</p><p>subject: ${value.subject}</p></div>`
+
+  assignments.forEach((data) => {
+    const taskNameElement = document.createElement("p");
+    taskNameElement.setAttribute("class", "task__name");
+    taskNameElement.innerText = `name: ${data.name}`;
+
+    const taskLimitElement = document.createElement("p");
+    taskNameElement.setAttribute("class", "task__limit");
+    taskLimitElement.innerText = `limit: ${data.limit}`;
+
+    const taskSubjectElement = document.createElement("p");
+    taskSubjectElement.setAttribute("class", "task__subject");
+    taskSubjectElement.innerText = `subject: ${data.subject}`;
+
+    const taskElement = document.createElement("div");
+    taskElement.setAttribute("class", "task");
+    taskElement.append(taskNameElement, taskLimitElement, taskSubjectElement);
+    taskElement.addEventListener("click", () => chrome.tabs.create({ url: data.link }));
+
+    appElement.appendChild(taskElement);
   })
-  document.getElementById("app").innerHTML = element
-
-  assignments.forEach((value, index) => 
-    document.getElementById(`assignment${index}`).addEventListener("click", () => {
-      chrome.tabs.create({url: value.link})
-    })
-  )
 }
 
-function refresh() {
-  assignments = chrome.extension.getBackgroundPage().assignments;
-
-  update()
-}
-
-chrome.storage.sync.get("assignments", (result) => {assignments = result.assignments; update()})
+chrome.storage.sync.get("assignments", ({ assignments }) => update(assignments))
