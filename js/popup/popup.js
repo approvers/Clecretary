@@ -1,14 +1,14 @@
 function createMessageElement(title, subtitle) {
   const messageTitleElement = document.createElement("h3");
-  messageTitleElement.setAttribute("class", "message__title");
+  messageTitleElement.classList.add("message__title");
   messageTitleElement.innerText = title;
 
   const messageSubtitleElement = document.createElement("h4");
-  messageSubtitleElement.setAttribute("class", "message__subtitle");
+  messageSubtitleElement.classList.add("message__subtitle");
   messageSubtitleElement.innerText = subtitle;
 
   const messageElement = document.createElement("div");
-  messageElement.setAttribute("class", "message");
+  messageElement.classList.add("message");
   messageElement.append(messageTitleElement, messageSubtitleElement);
 
   return messageElement;
@@ -35,19 +35,19 @@ function update(assignments) {
 
   assignments.forEach((data) => {
     const taskNameElement = document.createElement("p");
-    taskNameElement.setAttribute("class", "task__name");
+    taskNameElement.classList.add("task__name");
     taskNameElement.innerText = `name: ${data.name}`;
 
     const taskLimitElement = document.createElement("p");
-    taskNameElement.setAttribute("class", "task__limit");
+    taskNameElement.classList.add("task__limit");
     taskLimitElement.innerText = `limit: ${data.limit}`;
 
     const taskSubjectElement = document.createElement("p");
-    taskSubjectElement.setAttribute("class", "task__subject");
+    taskSubjectElement.classList.add("task__subject");
     taskSubjectElement.innerText = `subject: ${data.subject}`;
 
     const taskElement = document.createElement("div");
-    taskElement.setAttribute("class", "task");
+    taskElement.classList.add("task");
     taskElement.append(taskNameElement, taskLimitElement, taskSubjectElement);
     taskElement.addEventListener("click", () => chrome.tabs.create({ url: data.link }));
 
