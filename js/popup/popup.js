@@ -36,7 +36,7 @@ function update(assignments) {
   assignments.forEach((data) => {
     const taskNameElement = document.createElement("p");
     taskNameElement.classList.add("task__name");
-    taskNameElement.innerText = `name: ${data.name}`;
+    taskNameElement.innerText = data.name;
 
     const taskLimitElement = document.createElement("p");
     taskLimitElement.classList.add("task__limit");

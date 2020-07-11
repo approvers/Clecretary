@@ -1,6 +1,7 @@
 body {
   width: 20rem;
   height: 50rem;
+  font-weight: 300;
   font-family: 'Noto Sans JP', sans-serif;
 }
 
@@ -28,4 +29,10 @@ body {
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, .4);
+}
+
+.task__name {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #1867C0;
 }
