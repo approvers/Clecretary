@@ -22,3 +22,10 @@ body {
 #app {
   padding-top: 4rem;
 }
+
+.task {
+  margin: 0.8rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, .4);
+}
