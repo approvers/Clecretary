@@ -39,9 +39,9 @@ body {
 
 .task__limit {
   margin-bottom: 0.5rem;
-  color: gray;
 }
 
 .task__subject {
   margin-top: 0.5rem;
+  color: #808080;
 }
