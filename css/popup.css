@@ -1,0 +1,47 @@
+body {
+  width: 20rem;
+  height: 50rem;
+  font-weight: 300;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.header {
+  position: fixed;
+  width: 100vw;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, .5);
+  background-color: #fff;
+}
+
+.header__title {
+  font-family: paralucent-stencil, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2rem;
+}
+
+#app {
+  padding-top: 4rem;
+}
+
+.task {
+  margin: 0.8rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem 0 rgba(0, 0, 0, .4);
+}
+
+.task__name {
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: #1867C0;
+}
+
+.task__limit {
+  margin-bottom: 1rem;
+}
+
+.task__subject {
+  margin-top: 1rem;
+  color: #808080;
+}

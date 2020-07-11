@@ -36,15 +36,15 @@ function update(assignments) {
   assignments.forEach((data) => {
     const taskNameElement = document.createElement("p");
     taskNameElement.classList.add("task__name");
-    taskNameElement.innerText = `name: ${data.name}`;
+    taskNameElement.innerText = data.name;
 
     const taskLimitElement = document.createElement("p");
     taskLimitElement.classList.add("task__limit");
-    taskLimitElement.innerText = `limit: ${data.limit}`;
+    taskLimitElement.innerText = data.limit;
 
     const taskSubjectElement = document.createElement("p");
     taskSubjectElement.classList.add("task__subject");
-    taskSubjectElement.innerText = `subject: ${data.subject}`;
+    taskSubjectElement.innerText = data.subject;
 
     const taskElement = document.createElement("div");
     taskElement.classList.add("task");
