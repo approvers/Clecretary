@@ -36,3 +36,8 @@ body {
   font-weight: 500;
   color: #1867C0;
 }
+
+.task__limit {
+  margin-bottom: 0.5rem;
+  color: gray;
+}
