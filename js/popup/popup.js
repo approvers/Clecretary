@@ -39,7 +39,7 @@ function update(assignments) {
     taskNameElement.innerText = `name: ${data.name}`;
 
     const taskLimitElement = document.createElement("p");
-    taskNameElement.classList.add("task__limit");
+    taskLimitElement.classList.add("task__limit");
     taskLimitElement.innerText = `limit: ${data.limit}`;
 
     const taskSubjectElement = document.createElement("p");
